@@ -82,9 +82,3 @@ pub fn spawn_basic_mob(mut commands: Commands) {
         ..Default::default()
     });
 }
-
-pub fn welcome_basic_mob(query: Query<(&Name, &Health)>) {
-    for (name, hp) in query.iter() {
-        println!("Welcome {}! You have {} HP.", name, hp.current);
-    }
-}
