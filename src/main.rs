@@ -1,10 +1,15 @@
 use bevy::{
-    diagnostic::FrameTimeDiagnosticsPlugin, input::common_conditions::input_toggle_active,
-    prelude::*, window::close_on_esc,
+    diagnostic::FrameTimeDiagnosticsPlugin,
+    input::common_conditions::input_toggle_active,
+    prelude::*,
+    window::{close_on_esc, WindowResolution},
 };
 use bevy_asset_loader::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
-use die4u_rs::core::{GamePluginGroup, GameState};
+use die4u_rs::core::{
+    setup::window_setup::{WINDOW_HEIGHT, WINDOW_TITLE, WINDOW_WIDTH},
+    GamePluginGroup, GameState,
+};
 
 fn main() {
     let mut app = App::new();
@@ -18,7 +23,18 @@ fn main() {
     // Plugins
     app
         // Default Bevy plugins
-        .add_plugins(DefaultPlugins)
+        .add_plugins(
+            DefaultPlugins
+                .set(WindowPlugin {
+                    primary_window: Some(Window {
+                        title: WINDOW_TITLE.to_string(),
+                        resolution: WindowResolution::new(WINDOW_WIDTH, WINDOW_HEIGHT),
+                        ..default()
+                    }),
+                    ..default()
+                })
+                .set(ImagePlugin::default_nearest()),
+        )
         // Diagnostics for progress plugin
         .add_plugin(FrameTimeDiagnosticsPlugin::default())
         // For debug purpouses

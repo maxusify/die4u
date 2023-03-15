@@ -1,6 +1,8 @@
-/// Core functionalities for the app
+/// Core functionalities for the game app
 pub mod core;
 
-/// Entities existing in the game
-/// Note: **NOT** Bevy entities
+/// Entities (game context)
 pub mod entities;
+
+/// Resources
+pub mod resources;

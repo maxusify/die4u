@@ -1,13 +1,13 @@
 use bevy::prelude::*;
 
 /// Gamepad input systems
-pub mod gamepad;
+mod gamepad;
 
 /// Keyboard input systems
-pub mod keyboard;
+mod keyboard;
 
 /// Mouse input systems
-pub mod mouse;
+mod mouse;
 
 /// Plugin grouping all input systems
 pub struct GameInputPlugin;

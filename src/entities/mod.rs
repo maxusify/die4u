@@ -1,8 +1,8 @@
-/// Components and systems for mobs
+/// Components for building mobs
+pub mod components;
+
+/// Basic mob implementation
 pub mod mob;
 
-/// Player components and systems
-pub mod player_mob;
-
-// NPC components and systems
-//pub mod npc_mob;
+/// Player implementation
+pub mod player;

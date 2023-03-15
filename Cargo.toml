@@ -11,7 +11,9 @@ opt-level = 3
 
 [dependencies]
 bevy-inspector-egui = "0.18.0"
+config = "0.13.3"
 iyes_progress = "0.8.0"
+lazy_static = "1.4.0"
 
 [dependencies.bevy]
 version = "0.10.0"
@@ -19,4 +21,4 @@ features = ["dynamic_linking"]
 
 [dependencies.bevy_asset_loader]
 version = "0.15.0"
-features = ["progress_tracking"]
+features = ["progress_tracking", "2d"]
