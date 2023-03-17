@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Install system dependencies
+      run: apt update && apt upgrade && apt install build-essential
     - name: Install latest nightly
       uses: actions-rs/toolchain@v1
       with:
