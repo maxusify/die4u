@@ -1,7 +1,7 @@
 use bevy::{app::PluginGroupBuilder, prelude::*};
-///
+
 /// Game input module
-pub mod input;
+mod input;
 
 /// Game startup systems
 pub mod setup;

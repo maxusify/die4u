@@ -2,13 +2,13 @@ use bevy::prelude::*;
 
 use crate::core::assets::PlayerAssets;
 
-use super::{components::Experience, mob::DefaultMobBundle};
+use super::{
+    components::Experience,
+    mob::{AnimationTimer, DefaultMobBundle},
+};
 
 #[derive(Component, Default)]
 pub struct Player;
-
-#[derive(Component, Default)]
-pub struct AnimationTimer(Timer);
 
 #[derive(Bundle, Default)]
 pub struct PlayerBundle {
@@ -45,17 +45,4 @@ pub fn spawn_default_player(mut commands: Commands, assets: Res<PlayerAssets>) {
         sprite_timer: AnimationTimer(Timer::from_seconds(0.1, TimerMode::Repeating)),
         ..Default::default()
     });
-}
-
-pub fn animate_sprites_system(
-    time: Res<Time>,
-    mut query: Query<(&mut AnimationTimer, &mut TextureAtlasSprite)>,
-) {
-    for (mut timer, mut sprite) in &mut query {
-        timer.0.tick(time.delta());
-
-        if timer.0.finished() {
-            sprite.index = (sprite.index + 1) % 8;
-        }
-    }
 }

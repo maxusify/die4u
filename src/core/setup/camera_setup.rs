@@ -7,3 +7,8 @@ pub struct MainCamera;
 pub fn setup_camera(mut commands: Commands) {
     commands.spawn((Camera2dBundle::default(), MainCamera));
 }
+
+/// System for camera follower
+pub fn camera_follows_player() {
+    todo!()
+}
