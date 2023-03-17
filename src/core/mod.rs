@@ -16,6 +16,9 @@ pub mod assets;
 /// Game animations systems
 pub mod animation;
 
+/// Game physics engine
+pub mod physics;
+
 /// Plugin group for all core game plugins
 pub struct GameCorePluginsGroup;
 
@@ -26,5 +29,6 @@ impl PluginGroup for GameCorePluginsGroup {
             .add(assets::GameAssetsPlugin)
             .add(input::GameInputPlugin)
             .add(animation::GameAnimationsPlugin)
+            .add(physics::GamePhysicsEnginePlugin)
     }
 }
