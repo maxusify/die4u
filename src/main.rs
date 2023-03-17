@@ -6,9 +6,12 @@ use bevy::{
 };
 use bevy_asset_loader::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
-use die4u_rs::core::{
-    setup::window_setup::{WINDOW_HEIGHT, WINDOW_TITLE, WINDOW_WIDTH},
-    GamePluginGroup, GameState,
+use die4u_rs::{
+    core::{
+        setup::window_setup::{WINDOW_HEIGHT, WINDOW_TITLE, WINDOW_WIDTH},
+        GameCorePluginsGroup, GameState,
+    },
+    mobs::GameMobsPluginGroup,
 };
 
 fn main() {
@@ -41,8 +44,9 @@ fn main() {
         .add_plugin(
             WorldInspectorPlugin::default().run_if(input_toggle_active(true, KeyCode::Escape)),
         )
-        // Game core plugin
-        .add_plugins(GamePluginGroup);
+        // Game core plugins
+        .add_plugins(GameCorePluginsGroup)
+        .add_plugins(GameMobsPluginGroup);
 
     // Independent systems
     app.add_system(close_on_esc);

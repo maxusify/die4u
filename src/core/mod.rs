@@ -3,32 +3,28 @@ use bevy::{app::PluginGroupBuilder, prelude::*};
 /// Game input module
 mod input;
 
+/// Game states
+mod game_state;
+pub use game_state::GameState;
+
 /// Game startup systems
 pub mod setup;
 
 /// Game assets systems
 pub mod assets;
 
-/// All possible game states
-#[derive(States, PartialEq, Eq, Debug, Default, Hash, Clone)]
-pub enum GameState {
-    #[default]
-    AssetLoading,
-    MainMenu,
-    SubMenu,
-    Playing,
-    Pause,
-    GameOver,
-}
+/// Game animations systems
+pub mod animation;
 
 /// Plugin group for all core game plugins
-pub struct GamePluginGroup;
+pub struct GameCorePluginsGroup;
 
-impl PluginGroup for GamePluginGroup {
+impl PluginGroup for GameCorePluginsGroup {
     fn build(self) -> bevy::app::PluginGroupBuilder {
         PluginGroupBuilder::start::<Self>()
             .add(setup::GameSetupPlugin)
             .add(assets::GameAssetsPlugin)
             .add(input::GameInputPlugin)
+            .add(animation::GameAnimationsPlugin)
     }
 }
