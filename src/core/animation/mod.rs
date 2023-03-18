@@ -20,7 +20,7 @@ impl Plugin for GameAnimationsPlugin {
             0.5,
             TimerMode::Repeating,
         )));
-        app.add_system(tick_global_animation_timer.run_if(in_state(GameState::Playing)));
+        app.add_system(tick_global_animation_timer);
         app.add_system(animate_mob_sprites_global.in_schedule(OnEnter(GameState::Playing)));
         app.add_system(animate_mob_sprites.run_if(in_state(GameState::Playing)));
     }
