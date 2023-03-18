@@ -27,3 +27,7 @@ features = ["progress_tracking", "2d"]
 [dependencies.bevy_rapier2d]
 version = "0.21.0"
 features = ["debug-render-2d"]
+
+[dependencies.bevy_kira_audio]
+version = "0.15.0"
+features = ["mp3"]
