@@ -1,11 +1,9 @@
 use bevy::{
     diagnostic::FrameTimeDiagnosticsPlugin,
-    input::common_conditions::input_toggle_active,
     prelude::*,
     window::{close_on_esc, WindowResolution},
 };
 use bevy_asset_loader::prelude::*;
-use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use die4u_rs::{
     core::{
         setup::window_setup::{WINDOW_HEIGHT, WINDOW_TITLE, WINDOW_WIDTH},
@@ -40,10 +38,6 @@ fn main() {
         )
         // Diagnostics for progress plugin
         .add_plugin(FrameTimeDiagnosticsPlugin::default())
-        // For debug purpouses
-        .add_plugin(
-            WorldInspectorPlugin::default().run_if(input_toggle_active(true, KeyCode::Escape)),
-        )
         // Game core plugins
         .add_plugins(GameCorePluginsGroup)
         .add_plugins(GameMobsPluginGroup);

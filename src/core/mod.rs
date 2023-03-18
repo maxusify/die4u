@@ -19,6 +19,9 @@ pub mod animation;
 /// Game physics engine
 pub mod physics;
 
+/// Game debuging utilites
+pub mod debug;
+
 /// Plugin group for all core game plugins
 pub struct GameCorePluginsGroup;
 
@@ -30,5 +33,6 @@ impl PluginGroup for GameCorePluginsGroup {
             .add(input::GameInputPlugin)
             .add(animation::GameAnimationsPlugin)
             .add(physics::GamePhysicsEnginePlugin)
+            .add(debug::GameDebugPlugin)
     }
 }

@@ -580,9 +580,9 @@ dependencies = [
 
 [[package]]
 name = "bevy_egui"
-version = "0.20.0"
+version = "0.20.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf0efb32c83ae6d2cc36bda08a029d74fdeb45870489599d3779a36649802bce"
+checksum = "1ae1391dc1820f8bb3f8f489f2348cfa5f5bd0970a4c6bcb0c1a011f65ae1b4d"
 dependencies = [
  "arboard",
  "bevy",
@@ -1558,6 +1558,7 @@ dependencies = [
  "bevy",
  "bevy-inspector-egui",
  "bevy_asset_loader",
+ "bevy_egui",
  "bevy_rapier2d",
  "config",
  "iyes_progress",
