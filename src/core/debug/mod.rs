@@ -1,4 +1,4 @@
-use bevy::{prelude::*, window::PrimaryWindow};
+use bevy::{diagnostic::FrameTimeDiagnosticsPlugin, prelude::*, window::PrimaryWindow};
 use bevy_egui::{egui, EguiContext, EguiPlugin};
 use bevy_inspector_egui::{
     bevy_inspector::{ui_for_assets, ui_for_resources, ui_for_world_entities},
@@ -11,6 +11,7 @@ impl Plugin for GameDebugPlugin {
     fn build(&self, app: &mut App) {
         app.add_plugin(EguiPlugin);
         app.add_plugin(DefaultInspectorConfigPlugin);
+        app.add_plugin(FrameTimeDiagnosticsPlugin::default());
         app.add_system(debug_inspector_ui);
     }
 }

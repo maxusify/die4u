@@ -1,14 +1,7 @@
-use bevy::{
-    diagnostic::FrameTimeDiagnosticsPlugin,
-    prelude::*,
-    window::{close_on_esc, WindowResolution},
-};
+use bevy::{prelude::*, window::close_on_esc};
 use bevy_asset_loader::prelude::*;
 use die4u_rs::{
-    core::{
-        setup::window_setup::{WINDOW_HEIGHT, WINDOW_TITLE, WINDOW_WIDTH},
-        GameCorePluginsGroup, GameState,
-    },
+    core::{setup::window_setup::initialize_window, GameCorePluginsGroup, GameState},
     mobs::GameMobsPluginGroup,
 };
 
@@ -27,17 +20,11 @@ fn main() {
         .add_plugins(
             DefaultPlugins
                 .set(WindowPlugin {
-                    primary_window: Some(Window {
-                        title: WINDOW_TITLE.to_string(),
-                        resolution: WindowResolution::new(WINDOW_WIDTH, WINDOW_HEIGHT),
-                        ..default()
-                    }),
+                    primary_window: initialize_window(),
                     ..default()
                 })
                 .set(ImagePlugin::default_nearest()),
         )
-        // Diagnostics for progress plugin
-        .add_plugin(FrameTimeDiagnosticsPlugin::default())
         // Game core plugins
         .add_plugins(GameCorePluginsGroup)
         .add_plugins(GameMobsPluginGroup);
