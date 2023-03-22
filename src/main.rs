@@ -1,7 +1,8 @@
 use bevy::{prelude::*, window::close_on_esc};
 use bevy_asset_loader::prelude::*;
 use die4u_rs::{
-    core::{setup::window_setup::initialize_window, GameCorePluginsGroup, GameState},
+    core::{GameCorePluginsGroup, GameState},
+    levels::GameLevelsPluginGroup,
     mobs::GameMobsPluginGroup,
 };
 
@@ -15,19 +16,9 @@ fn main() {
     app.add_loading_state(LoadingState::new(GameState::AssetLoading));
 
     // Plugins
-    app
-        // Default Bevy plugins
-        .add_plugins(
-            DefaultPlugins
-                .set(WindowPlugin {
-                    primary_window: initialize_window(),
-                    ..default()
-                })
-                .set(ImagePlugin::default_nearest()),
-        )
-        // Game core plugins
-        .add_plugins(GameCorePluginsGroup)
-        .add_plugins(GameMobsPluginGroup);
+    app.add_plugins(GameCorePluginsGroup)
+        .add_plugins(GameMobsPluginGroup)
+        .add_plugins(GameLevelsPluginGroup);
 
     // Independent systems
     app.add_system(close_on_esc);

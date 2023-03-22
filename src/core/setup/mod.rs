@@ -1,5 +1,7 @@
 use bevy::prelude::*;
 
+use self::window_setup::initialize_window;
+
 /// Setup for 2D camera
 pub mod camera_setup;
 
@@ -11,6 +13,16 @@ pub struct GameSetupPlugin;
 
 impl Plugin for GameSetupPlugin {
     fn build(&self, app: &mut App) {
+        // Default Bevy plugins
+        app.add_plugins(
+            DefaultPlugins
+                .set(WindowPlugin {
+                    primary_window: initialize_window(),
+                    ..default()
+                })
+                .set(ImagePlugin::default_nearest()),
+        );
+
         // Add default main camera
         app.add_startup_system(camera_setup::setup_camera);
     }
