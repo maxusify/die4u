@@ -1,10 +1,7 @@
 [package]
 name = "die4u-rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
-
-[toolchain]
-channel = "nightly"
 
 [profile.dev]
 opt-level = 1
@@ -14,8 +11,23 @@ opt-level = 3
 
 [dependencies]
 bevy-inspector-egui = "0.18.0"
-bevy_asset_loader = "0.14.1"
+bevy_egui = "0.20.1"
+config = "0.13.3"
+iyes_progress = "0.8.0"
+lazy_static = "1.4.0"
 
 [dependencies.bevy]
 version = "0.10.0"
 features = ["dynamic_linking"]
+
+[dependencies.bevy_asset_loader]
+version = "0.15.0"
+features = ["progress_tracking", "2d"]
+
+[dependencies.bevy_rapier2d]
+version = "0.21.0"
+features = ["debug-render-2d"]
+
+[dependencies.bevy_kira_audio]
+version = "0.15.0"
+features = ["mp3"]
