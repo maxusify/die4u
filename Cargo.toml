@@ -31,3 +31,12 @@ features = ["debug-render-2d"]
 [dependencies.bevy_kira_audio]
 version = "0.15.0"
 features = ["mp3"]
+
+# TODO(maxusify): Change this to release version after plugin version bump
+# WARNING: This is unstable version of this plugin
+[dependencies.bevy_ecs_ldtk]
+git = "https://github.com/Trouv/bevy_ecs_ldtk"
+branch = "main"
+
+[patch.crates-io]
+bevy_ecs_tilemap = { git = "https://github.com/geieredgar/bevy_ecs_tilemap", branch = "bevy_track" }
