@@ -11,10 +11,11 @@ opt-level = 3
 
 [dependencies]
 bevy-inspector-egui = "0.18.0"
+bevy_ecs_ldtk = "0.6.0"
 bevy_egui = "0.20.1"
-config = "0.13.3"
 iyes_progress = "0.8.0"
 lazy_static = "1.4.0"
+savefile = "0.12.0"
 
 [dependencies.bevy]
 version = "0.10.0"
@@ -31,12 +32,3 @@ features = ["debug-render-2d"]
 [dependencies.bevy_kira_audio]
 version = "0.15.0"
 features = ["mp3"]
-
-# TODO(maxusify): Change this to release version after plugin version bump
-# WARNING: This is unstable version of this plugin
-[dependencies.bevy_ecs_ldtk]
-git = "https://github.com/Trouv/bevy_ecs_ldtk"
-branch = "main"
-
-[patch.crates-io]
-bevy_ecs_tilemap = { git = "https://github.com/geieredgar/bevy_ecs_tilemap", branch = "bevy_track" }
