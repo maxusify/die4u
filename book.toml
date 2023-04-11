@@ -1,0 +1,6 @@
+[book]
+authors = ["Michał Pędzik"]
+language = "en"
+multilingual = false
+src = "design/src"
+title = "DiE4U"
