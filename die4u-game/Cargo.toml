@@ -1,0 +1,9 @@
+[package]
+name = "die4u-game"
+version = "0.1.0"
+authors = ["Michał Pędzik"]
+edition = "2021"
+
+[dependencies]
+bevy = { version = "0.10.1", default-features = false }
+die4u-lib = { path = "../die4u-lib", version = "0.1.0" }

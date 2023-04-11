@@ -20,7 +20,7 @@ impl Plugin for GameSetupPlugin {
                     primary_window: initialize_window(),
                     ..default()
                 })
-                .set(ImagePlugin::default_nearest()),
+                .set(ImagePlugin::default_nearest())
         );
 
         // Add default main camera

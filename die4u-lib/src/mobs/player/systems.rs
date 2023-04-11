@@ -16,7 +16,7 @@ pub fn spawn_default_player_with_physics(mut commands: Commands, assets: Res<Pla
             DefaultMobBundle {
                 sprite: SpriteSheetBundle {
                     sprite: TextureAtlasSprite::new(0),
-                    texture_atlas: assets.sprite_idle.clone(),
+                    texture_atlas: assets.player_idle.clone(),
                     ..Default::default()
                 },
                 ..Default::default()
