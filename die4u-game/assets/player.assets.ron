@@ -1,0 +1,9 @@
+({
+    "player.idle": TextureAtlas (
+        path: "images/player/_idle.png",
+        tile_size_x: 120.,
+        tile_size_y: 80.,
+        columns: 10,
+        rows: 1
+    ),
+})
