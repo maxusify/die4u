@@ -1,3 +1,11 @@
+//! Connects all of the game logic
+
+#![deny(missing_docs)]
+#![deny(clippy::missing_docs_in_private_items)]
+#![forbid(unsafe_code)]
+#![warn(clippy::doc_markdown)]
+#![allow(clippy::type_complexity)]
+
 use bevy::prelude::*;
 
 /// Core game plugin group
@@ -11,7 +19,6 @@ mod mobs;
 /// Plugin group for game levels, maps, etc.
 mod levels;
 
-/// Reexport of GameState
 pub use self::core::GameState;
 
 /// Game plugin that groups all of other plugins

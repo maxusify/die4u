@@ -4,10 +4,14 @@ use bevy::prelude::*;
 #[derive(States, PartialEq, Eq, Debug, Default, Hash, Clone)]
 pub enum GameState {
     #[default]
+    /// Loading assets
     AssetLoading,
+    /// Main menu
     MainMenu,
-    SubMenu,
+    /// Running gameplay
     Playing,
+    /// Pause
     Pause,
+    /// Game over
     GameOver,
 }
