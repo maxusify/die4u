@@ -21,6 +21,10 @@ impl Plugin for GameSetupPlugin {
                     ..default()
                 })
                 .set(ImagePlugin::default_nearest())
+                .set(AssetPlugin {
+                    watch_for_changes: true,
+                    ..default()
+                }),
         );
 
         // Add default main camera

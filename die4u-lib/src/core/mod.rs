@@ -1,29 +1,30 @@
 use bevy::{app::PluginGroupBuilder, prelude::*};
 
-/// Game states
-mod game_state;
-pub use game_state::GameState;
-/// Game animations systems
+/// Game animations logic
 pub mod animation;
-/// Game assets systems
+/// Game assets logic
 mod assets;
-/// Game audio engine
+/// Game audio engine logic
 mod audio;
 /// Game debugging utilities
 mod debug;
-/// Game input system
+/// Game states
+mod game_state;
+/// Game input logic
 mod input;
-/// Game physics engine
+/// Game physics logic
 mod physics;
-/// Game startup systems
+/// Game startup logic
 mod setup;
-pub use input::PlayerActions;
+
+pub use game_state::GameState;
+pub use input::{PlayerActions, GamePlayerInput};
 
 /// Plugin group for all core game plugins
 pub struct GameCorePluginsGroup;
 
 impl PluginGroup for GameCorePluginsGroup {
-    fn build(self) -> bevy::app::PluginGroupBuilder {
+    fn build(self) -> PluginGroupBuilder {
         PluginGroupBuilder::start::<Self>()
             .add(setup::GameSetupPlugin)
             .add(assets::GameAssetsPlugin)

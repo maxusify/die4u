@@ -1,39 +1,20 @@
 use bevy::prelude::*;
 use leafwing_input_manager::plugin::InputManagerPlugin;
-use leafwing_input_manager::prelude::{InputMap, QwertyScanCode};
-use leafwing_input_manager::Actionlike;
 
-#[derive(Resource)]
-pub struct GamePlayerInput {
-    pub input_map: InputMap<PlayerActions>,
-}
+/// Gameplay related actions
+mod gameplay;
+/// Global input map
+mod input_map;
 
-impl Default for GamePlayerInput {
-    fn default() -> Self {
-        let mut input_map = InputMap::default();
+pub use self::gameplay::player_actions::PlayerActions;
+pub use self::input_map::GamePlayerInput;
 
-        input_map
-            .insert(QwertyScanCode::W, PlayerActions::Jump)
-            .insert(QwertyScanCode::S, PlayerActions::Fall)
-            .insert(QwertyScanCode::A, PlayerActions::MoveLeft)
-            .insert(QwertyScanCode::D, PlayerActions::MoveRight);
-
-        Self { input_map }
-    }
-}
-
-#[derive(Actionlike, PartialEq, Eq, Clone, Copy, Hash, Debug)]
-pub enum PlayerActions {
-    // Movement
-    MoveLeft,
-    MoveRight,
-    Jump,
-    Fall,
-}
-
+/// Groups input related logic
 pub struct GameInputPlugin;
+
 impl Plugin for GameInputPlugin {
     fn build(&self, app: &mut App) {
         app.add_plugin(InputManagerPlugin::<PlayerActions>::default());
+        app.insert_resource(GamePlayerInput::default());
     }
 }

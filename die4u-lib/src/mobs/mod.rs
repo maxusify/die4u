@@ -15,7 +15,7 @@ mod player;
 pub struct GameMobsPluginGroup;
 
 impl PluginGroup for GameMobsPluginGroup {
-    fn build(self) -> bevy::app::PluginGroupBuilder {
+    fn build(self) -> PluginGroupBuilder {
         PluginGroupBuilder::start::<Self>().add(MobPlayerPlugin)
     }
 }
