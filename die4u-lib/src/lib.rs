@@ -28,5 +28,6 @@ impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
         app.add_plugins(core::GameCorePluginsGroup);
         app.add_plugins(mobs::GameMobsPluginGroup);
+        app.add_plugins(levels::GameLevelsPluginGroup);
     }
 }

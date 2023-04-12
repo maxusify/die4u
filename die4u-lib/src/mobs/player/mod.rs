@@ -15,6 +15,7 @@ mod resources;
 mod systems;
 
 use self::assets::PlayerAssets;
+pub use self::components::Player;
 use self::systems::{player_movement_with_physics, spawn_default_player_with_physics};
 
 /// Plugin that adds player to the game

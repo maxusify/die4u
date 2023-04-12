@@ -18,7 +18,8 @@ mod physics;
 mod setup;
 
 pub use game_state::GameState;
-pub use input::{PlayerActions, GamePlayerInput};
+pub use input::{GamePlayerInput, PlayerActions};
+pub use setup::camera_setup::MainCamera;
 
 /// Plugin group for all core game plugins
 pub struct GameCorePluginsGroup;

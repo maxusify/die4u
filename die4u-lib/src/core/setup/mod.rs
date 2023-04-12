@@ -1,3 +1,5 @@
+use crate::core::setup::camera_setup::camera_follows_player;
+use crate::GameState;
 use bevy::prelude::*;
 
 use self::window_setup::initialize_window;
@@ -29,5 +31,6 @@ impl Plugin for GameSetupPlugin {
 
         // Add default main camera
         app.add_startup_system(camera_setup::setup_camera);
+        app.add_system(camera_follows_player.in_set(OnUpdate(GameState::Playing)));
     }
 }

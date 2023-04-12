@@ -15,8 +15,7 @@ impl Plugin for GameAssetsPlugin {
 
         // Add plugin for tracking progress
         app.add_plugin(
-            ProgressPlugin::new(GameState::AssetLoading)
-                .continue_to(GameState::Playing),
+            ProgressPlugin::new(GameState::AssetLoading).continue_to(GameState::Playing),
         );
 
         // App assets loading progress tracking
