@@ -1,9 +1,25 @@
 ({
     "player.idle": TextureAtlas (
         path: "images/player/_idle.png",
-        tile_size_x: 120.,
-        tile_size_y: 80.,
+        tile_size_x: 48.,
+        tile_size_y: 48.,
         columns: 10,
         rows: 1
     ),
+
+    "player.walk": TextureAtlas (
+        path: "images/player/_walk.png",
+        tile_size_x: 48.,
+        tile_size_y: 48.,
+        columns: 8,
+        rows: 1
+    ),
+
+    "player.run": TextureAtlas (
+        path: "images/player/_run.png",
+        tile_size_x: 48.,
+        tile_size_y: 48.,
+        columns: 8,
+        rows: 1
+    )
 })
