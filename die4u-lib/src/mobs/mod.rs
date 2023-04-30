@@ -11,7 +11,8 @@ mod mob;
 /// Player plugin
 mod player;
 
-pub use self::player::Player;
+pub use self::player::input;
+pub use self::player::{Player, PlayerBundle};
 
 /// Plugin group that adds mobs to the game
 pub struct GameMobsPluginGroup;

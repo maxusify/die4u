@@ -2,6 +2,7 @@ use bevy::prelude::*;
 
 use super::{components::SpriteAnimationTimer, resources::GlobalSpriteAnimationTimer};
 
+/// Ticks global animation timer
 pub fn tick_global_animation_timer(mut timer: ResMut<GlobalSpriteAnimationTimer>, time: Res<Time>) {
     timer.0.tick(time.delta());
 }

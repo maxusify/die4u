@@ -2,7 +2,7 @@ use bevy::prelude::Component;
 use std::fmt::Display;
 
 /// Name for the mob
-#[derive(Component)]
+#[derive(Clone, Component)]
 pub struct Name(pub String);
 
 impl Default for Name {

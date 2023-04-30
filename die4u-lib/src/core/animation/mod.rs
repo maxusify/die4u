@@ -6,10 +6,14 @@ use self::{
 };
 use super::GameState;
 
+/// Components for animations
 pub mod components;
+/// Global resources for animations
 pub mod resources;
+/// Logic for animations
 mod systems;
 
+/// Groups logic for game animations
 pub struct GameAnimationsPlugin;
 impl Plugin for GameAnimationsPlugin {
     fn build(&self, app: &mut App) {

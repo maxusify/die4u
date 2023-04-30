@@ -5,6 +5,7 @@ use bevy_inspector_egui::{
     DefaultInspectorConfigPlugin,
 };
 
+/// Groups game debugging utilities
 pub struct GameDebugPlugin;
 
 impl Plugin for GameDebugPlugin {

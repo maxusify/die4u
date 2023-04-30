@@ -4,7 +4,6 @@ use bevy_ecs_tilemap::map::TilemapTexture;
 use bevy_ecs_tilemap::prelude::TilemapId;
 use bevy_ecs_tilemap::tiles::{TileBundle, TilePos, TileStorage};
 use bevy_ecs_tilemap::TilemapBundle;
-use bevy_rapier2d::prelude::{Collider, RigidBody};
 
 use super::assets::ProceduralWorldAssets;
 use super::{ChunkManager, CHUNK_SIZE, TILE_SIZE};

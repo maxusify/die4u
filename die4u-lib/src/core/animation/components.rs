@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 
 /// Timer for animating individual sprites
-#[derive(Component)]
+#[derive(Component, Clone)]
 pub struct SpriteAnimationTimer(pub Timer);
 
 impl Default for SpriteAnimationTimer {

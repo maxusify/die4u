@@ -1,36 +1,48 @@
 use bevy::prelude::*;
+use bevy_ecs_ldtk::prelude::*;
+use bevy_rapier2d::prelude::*;
 
-use super::components::{Health, InventoryBundle, Name, Shield};
+use super::components::Health;
+use crate::levels::LdtkColliderBundle;
 
 /// Identifies that entity is a mob
-#[derive(Component, Default)]
+#[derive(Clone, Default, Component)]
 pub struct Mob;
 
 /// Statistics
-#[derive(Bundle, Default)]
+#[derive(Clone, Default, Bundle)]
 pub struct StatisticsBundle {
+    /// Health points
     pub health: Health,
-    pub shield: Shield,
 }
 
 /// Bundle for creating basic mob with health and shield
-#[derive(Bundle, Default)]
+#[derive(Clone, Default, Bundle, LdtkEntity)]
 pub struct DefaultMobBundle {
-    /// Marker component indicating that entity is a mob
-    pub _mob: Mob,
+    /// External force affecting mob
+    pub external_force: ExternalForce,
+    /// External impulse affecting mob
+    pub external_impulse: ExternalImpulse,
+    /// Indicates that entity is a child of LDtk level
+    pub worldly: Worldly,
 
-    /// Name for the mob
-    pub name: Name,
-
-    /// Inventory mechanics
-    #[bundle]
-    pub inventory: InventoryBundle,
-
-    /// Basic stats like: Health, Shield
+    /// Statistics
     #[bundle]
     pub stats: StatisticsBundle,
 
-    /// Bevy sprite sheet bundle
+    /// Sprite
     #[bundle]
     pub sprite: SpriteSheetBundle,
+
+    /// Collider for physics
+    #[from_entity_instance]
+    #[bundle]
+    pub collider_bundle: LdtkColliderBundle,
+
+    /// LDtk instance of entity
+    #[from_entity_instance]
+    entity_instance: EntityInstance,
+
+    /// Marker component indicating that entity is a mob
+    _mob: Mob,
 }

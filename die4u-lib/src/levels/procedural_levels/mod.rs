@@ -9,7 +9,6 @@ use bevy::prelude::*;
 use bevy::utils::HashSet;
 use bevy_asset_loader::prelude::*;
 use bevy_ecs_tilemap::map::{TilemapRenderSettings, TilemapTileSize};
-use bevy_ecs_tilemap::TilemapPlugin;
 
 /// Assets for procedural worlds
 mod assets;
@@ -26,6 +25,7 @@ pub const RENDER_CHUNK_SIZE: UVec2 = UVec2 {
     y: CHUNK_SIZE.y,
 };
 
+/// Manages spawned chunks
 #[derive(Default, Debug, Resource)]
 pub struct ChunkManager {
     pub spawned_chunks: HashSet<IVec2>,

@@ -1,11 +1,14 @@
 use bevy::prelude::*;
 
-// TODO: Reimagine, rewrite, redo
+// TODO: Reimagine inventory system
 
-#[derive(Component, Default)]
+/// Inventory slots counter
+#[derive(Clone, Component, Default)]
 pub struct InventorySlots(i32);
 
-#[derive(Bundle, Default)]
+/// Makes complete inventory mechanic for entity
+#[derive(Clone, Default, Bundle)]
 pub struct InventoryBundle {
+    /// Inventory slots count
     pub slot_count: InventorySlots,
 }

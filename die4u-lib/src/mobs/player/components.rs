@@ -1,5 +1,5 @@
 use bevy::prelude::Component;
 
 /// Marker component for identifying player
-#[derive(Component, Default)]
+#[derive(Clone, Copy, Eq, PartialEq, Debug, Default, Component)]
 pub struct Player;
